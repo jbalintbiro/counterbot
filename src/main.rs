@@ -17,7 +17,7 @@ struct Settings {
 }
 
 fn absorb_message<C: Client>(client: &C, state: &mut Counter, settings: &Settings, chan: &str, nick: &str, text: &str) {
-    let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(&nick);
+    let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
             *state.entry(realnick.to_owned()).or_insert(0) += 1;
