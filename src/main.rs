@@ -2,6 +2,8 @@
 extern crate serde_derive;
 use irc::client::prelude::*;
 
+type Counter = std::collections::HashMap<String, u64>;
+
 #[derive(Debug, Deserialize)]
 struct Settings {
     nick: String,
@@ -14,17 +16,13 @@ struct Settings {
     replacements: std::collections::HashMap<String, String>,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
-struct State {
-    counter: std::collections::HashMap<String, u64>,
-}
-
-fn absorb_message<C: Client>(client: &C, state: &mut State, settings: &Settings, chan: &str, nick: &str, text: &str) {
+fn absorb_message<C: Client>(client: &C, state: &mut Counter, settings: &Settings, chan: &str, nick: &str, text: &str) {
     let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(&nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
-            *state.counter.entry(realnick.to_owned()).or_insert(0) += 1;
-            std::fs::write(&settings.dbfile, toml::to_string(&toml::value::Value::try_from(&state).expect("db TOML structure error")).expect("db TOML encoding error").as_bytes()).expect("db write error")
+            *state.entry(realnick.to_owned()).or_insert(0) += 1;
+            let toml = toml::to_string(&toml::value::Value::try_from(&state).expect("db TOML structure error")).expect("db TOML encoding error");
+            std::fs::write(&settings.dbfile, toml.as_bytes()).expect("db write error")
         }
     }
     let mut buf = String::new();
@@ -36,14 +34,14 @@ fn absorb_message<C: Client>(client: &C, state: &mut State, settings: &Settings,
     if !buf.is_empty() { client.send_privmsg(chan, buf).expect("can't send") }
 }
 
-fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings, nick: &str) {
+fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings, nick: &str) {
     write!(buf, "{}: ", nick).expect("can't write buffer");
-    write_count(buf, settings, *state.counter.get(nick).unwrap_or(&0));
+    write_count(buf, settings, *state.get(nick).unwrap_or(&0));
 }
 
-fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings) {
+fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings) {
     let medals = [(0, '\u{1F41B}'),(7, '\u{1F947}'), (15, '\u{1F948}'), (8, '\u{1F949}')];
-    let mut v: Vec<_> = state.counter.iter().map(|(k, v)| (k.clone(), *v)).collect();
+    let mut v: Vec<_> = state.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
     let mut prev = std::u64::MAX;
     let mut place = 0;
