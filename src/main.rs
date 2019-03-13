@@ -40,7 +40,7 @@ fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Setti
 }
 
 fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings) {
-    let medals = [(0, '\u{1F41B}'),(7, '\u{1F947}'), (15, '\u{1F948}'), (8, '\u{1F949}')];
+    let medals = [(0, '\u{1F41B}'), (7, '\u{1F947}'), (15, '\u{1F948}'), (8, '\u{1F949}')];
     let mut v: Vec<_> = state.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
     let mut place = 1;
