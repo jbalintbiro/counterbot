@@ -3,6 +3,7 @@ extern crate serde_derive;
 use irc::client::prelude::*;
 
 type Counter = std::collections::HashMap<String, u64>;
+type Error = std::error::Error;
 
 #[derive(Debug, Deserialize)]
 struct Settings {
@@ -16,28 +17,28 @@ struct Settings {
     replacements: std::collections::HashMap<String, String>,
 }
 
-fn absorb_message(buf: &mut String, state: &mut Counter, settings: &Settings, nick: &str, text: &str) {
+fn absorb_message(buf: &mut String, state: &mut Counter, settings: &Settings, nick: &str, text: &str) -> Result<(), Box<Error>> {
     let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
             *state.entry(realnick.to_owned()).or_insert(0) += 1;
-            let toml = toml::to_string(&toml::value::Value::try_from(&state).expect("db TOML structure error")).expect("db TOML encoding error");
-            std::fs::write(&settings.dbfile, toml.as_bytes()).expect("db write error")
+            let toml = toml::to_string(&toml::value::Value::try_from(&state)?)?;
+            std::fs::write(&settings.dbfile, toml.as_bytes())?
         }
     }
     match text {
         "`top" => write_top(buf, state, settings),
         "`stat" => write_stat(buf, state, settings, realnick),
-        _ => {}
+        _ => Ok(())
     }
 }
 
-fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings, nick: &str) {
-    write!(buf, "{}: ", nick).expect("can't write buffer");
-    write_count(buf, settings, *state.get(nick).unwrap_or(&0));
+fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings, nick: &str) -> Result<(), Box<Error>> {
+    write!(buf, "{}: ", nick)?;
+    write_count(buf, settings, *state.get(nick).unwrap_or(&0))
 }
 
-fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings) {
+fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings) -> Result<(), Box<Error>> {
     let medals = [(0, '\u{1F41B}'), (7, '\u{1F947}'), (15, '\u{1F948}'), (8, '\u{1F949}')];
     let mut v: Vec<_> = state.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
@@ -45,17 +46,18 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settin
     let diffs = Some(false).into_iter().chain(v.iter().zip(v.iter().next()).map(|(a, b)| a.1 != b.1)).chain(Some(true).into_iter());
     for ((nick, count), diff) in v.iter().zip(diffs).take(3) {
         if diff { place += 1 };
-        write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str()).expect("oom");
-        write_count(buf, settings, *count);
+        write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str())?;
+        write_count(buf, settings, *count)?;
     }
-    write!(buf, " :: \u{2211}").unwrap();
-    write_count(buf, settings, v.iter().map(|x| x.1).sum());
+    write!(buf, " :: \u{2211}")?;
+    write_count(buf, settings, v.iter().map(|x| x.1).sum())
 }
 
-fn write_count<W: std::fmt::Write>(buf: &mut W, settings: &Settings, count: u64) {
-    if let Some(color) = settings.count_color { write!(buf, "\u{3}{:02}", color).unwrap(); }
-    write!(buf, "{}{}", count, settings.count_unit).unwrap();
-    if let Some(_) = settings.count_color { write!(buf, "\u{3}").unwrap(); }
+fn write_count<W: std::fmt::Write>(buf: &mut W, settings: &Settings, count: u64) -> Result<(), Box<Error>> {
+    if let Some(color) = settings.count_color { write!(buf, "\u{3}{:02}", color)?; }
+    write!(buf, "{}{}", count, settings.count_unit)?;
+    if let Some(_) = settings.count_color { write!(buf, "\u{3}")?; }
+    Ok(())
 }
 
 fn main() {
@@ -79,7 +81,7 @@ fn main() {
             if target != settings.channel { return Ok(()) }
             if let Some(nick) = prefix.and_then(|u| u.split('!').next().map(|s| s.to_owned())) {
                 let mut buf = String::new();
-                absorb_message(&mut buf, &mut state, &settings, &nick, &text);
+                absorb_message(&mut buf, &mut state, &settings, &nick, &text).expect("message handling failure");
                 if !buf.is_empty() { client.send_privmsg(&target, buf).expect("can't send") }
             }
         })
