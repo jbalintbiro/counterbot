@@ -43,13 +43,9 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settin
     let medals = [(0, '\u{1F41B}'),(7, '\u{1F947}'), (15, '\u{1F948}'), (8, '\u{1F949}')];
     let mut v: Vec<_> = state.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
-    let mut prev = std::u64::MAX;
-    let mut place = 0;
-    for (nick, count) in v.iter().take(3) {
-        if *count != prev {
-            place += 1
-        };
-        prev = *count;
+    let mut place = 1;
+    for ((nick, count), same) in v.iter().zip([false].iter().chain(v.iter().zip(v.iter().next()).map(|a, b| a.1 != b.1)).chain([true].iter())).take(3) {
+        if !same { place += 1 };
         write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str()).expect("oom");
         write_count(buf, settings, *count);
     }
