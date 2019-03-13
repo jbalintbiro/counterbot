@@ -1,0 +1,9 @@
+nick = "test"
+server = "::0"
+channel = "#test"
+count_words = ["!test"]
+count_unit = "🔧"
+count_color = 2
+dbfile = "test-counts.toml"
+
+[replacements]
