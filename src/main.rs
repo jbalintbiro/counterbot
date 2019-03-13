@@ -16,7 +16,7 @@ struct Settings {
     replacements: std::collections::HashMap<String, String>,
 }
 
-fn absorb_message<C: Client>(client: &C, state: &mut Counter, settings: &Settings, chan: &str, nick: &str, text: &str) {
+fn absorb_message(buf: &mut String, state: &mut Counter, settings: &Settings, nick: &str, text: &str) {
     let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
@@ -25,13 +25,11 @@ fn absorb_message<C: Client>(client: &C, state: &mut Counter, settings: &Setting
             std::fs::write(&settings.dbfile, toml.as_bytes()).expect("db write error")
         }
     }
-    let mut buf = String::new();
     match text {
-        "`top" => write_top(&mut buf, state, settings),
-        "`stat" => write_stat(&mut buf, state, settings, realnick),
+        "`top" => write_top(buf, state, settings),
+        "`stat" => write_stat(buf, state, settings, realnick),
         _ => {}
     }
-    if !buf.is_empty() { client.send_privmsg(chan, buf).expect("can't send") }
 }
 
 fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settings, nick: &str) {
@@ -45,8 +43,8 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settin
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
     let mut place = 1;
     let diffs = Some(false).into_iter().chain(v.iter().zip(v.iter().next()).map(|(a, b)| a.1 != b.1)).chain(Some(true).into_iter());
-    for ((nick, count), same) in v.iter().zip(diffs).take(3) {
-        if !same { place += 1 };
+    for ((nick, count), diff) in v.iter().zip(diffs).take(3) {
+        if diff { place += 1 };
         write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str()).expect("oom");
         write_count(buf, settings, *count);
     }
@@ -80,7 +78,9 @@ fn main() {
         Ok(if let Message { prefix, command: Command::PRIVMSG(target, text), .. } = msg {
             if target != settings.channel { return Ok(()) }
             if let Some(nick) = prefix.and_then(|u| u.split('!').next().map(|s| s.to_owned())) {
-                absorb_message(client, &mut state, &settings, &target, &nick, &text);
+                let mut buf = String::new();
+                absorb_message(&mut buf, &mut state, &settings, &nick, &text);
+                if !buf.is_empty() { client.send_privmsg(&target, buf).expect("can't send") }
             }
         })
     });
