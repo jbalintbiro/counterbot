@@ -44,7 +44,8 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settin
     let mut v: Vec<_> = state.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
     let mut place = 1;
-    for ((nick, count), same) in v.iter().zip([false].iter().chain(v.iter().zip(v.iter().next()).map(|a, b| a.1 != b.1)).chain([true].iter())).take(3) {
+    let diffs = Some(false).into_iter().chain(v.iter().zip(v.iter().next()).map(|(a, b)| a.1 != b.1)).chain(Some(true).into_iter());
+    for ((nick, count), same) in v.iter().zip(diffs).take(3) {
         if !same { place += 1 };
         write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str()).expect("oom");
         write_count(buf, settings, *count);
