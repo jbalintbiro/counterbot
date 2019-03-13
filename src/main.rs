@@ -24,7 +24,7 @@ struct State {
 type Nick = SmallString<[u8; 9]>;
 
 impl State {
-    fn write_state_file(&mut self, file: &str) -> std::io::Result<()> {
+    fn save_state_file(&mut self, file: &str) -> std::io::Result<()> {
         let value = toml::value::Value::try_from(&self).expect("db TOML structure error");
         std::fs::write(file, toml::to_string(&value).expect("db TOML encoding error").as_bytes())
     }
@@ -35,7 +35,7 @@ fn absorb_message<C: Client>(client: &C, state: &mut State, settings: &Settings,
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
             *state.counter.entry(realnick.clone()).or_insert(0) += 1;
-            state.write_state_file(&settings.dbfile).expect("can't write db");
+            state.save_state_file(&settings.dbfile).expect("can't write db");
         }
     }
 
