@@ -11,35 +11,27 @@ struct Settings {
     count_words: Vec<String>,
     count_color: Option<u8>,
     count_unit: String,
-    replacements: std::collections::HashMap<String, String>,
-}
+    replacements: std::collections::HashMap<String, String>}
 
 #[derive(Debug, Deserialize, Serialize)]
-struct State {
-    counter: std::collections::HashMap<String, u64>,
-}
+struct State { counter: std::collections::HashMap<String, u64> }
 
 fn absorb_message<C: Client>(client: &C, state: &mut State, settings: &Settings, chan: &str, nick: &str, text: &str) {
     let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(&nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
             *state.counter.entry(realnick.to_owned()).or_insert(0) += 1;
-            std::fs::write(&settings.dbfile, toml::to_string(&toml::value::Value::try_from(&state).expect("db TOML structure error")).expect("db TOML encoding error").as_bytes()).expect("db write error")
-        }
-    }
+            std::fs::write(&settings.dbfile, toml::to_string(&toml::value::Value::try_from(&state).expect("db TOML structure error")).expect("db TOML encoding error").as_bytes()).expect("db write error")}}
     let mut buf = String::new();
     match text {
         "`top" => write_top(&mut buf, state, settings),
         "`stat" => write_stat(&mut buf, state, settings, realnick),
-        _ => {}
-    }
-    if !buf.is_empty() { client.send_privmsg(chan, buf).expect("can't send") }
-}
+        _ => {}}
+    if !buf.is_empty() { client.send_privmsg(chan, buf).expect("can't send") }}
 
 fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings, nick: &str) {
     write!(buf, "{}: ", nick).expect("can't write buffer");
-    write_count(buf, settings, *state.counter.get(nick).unwrap_or(&0));
-}
+    write_count(buf, settings, *state.counter.get(nick).unwrap_or(&0))}
 
 fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings) {
     let mut v: Vec<_> = state.counter.iter().map(|(k, v)| (k.clone(), *v)).collect();
@@ -48,27 +40,22 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings
     let mut place = 0;
     for (nick, count) in v.iter().take(3) {
         if *count != prev {
-            place += 1
-        };
+            place += 1};
         prev = *count;
         let (color, icon) = match place {
             1 => (7, '\u{1F947}'),
             2 => (15, '\u{1F948}'),
             3 => (8, '\u{1F949}'),
-            _ => (6, '\u{1F41B}'),
-        };
+            _ => (6, '\u{1F41B}'),};
         write!(buf, "\u{3}{}{}\u{3} {} ", color, icon, nick.as_str()).expect("oom");
-        write_count(buf, settings, *count);
-    }
+        write_count(buf, settings, *count);}
     write!(buf, " :: \u{2211}").unwrap();
-    write_count(buf, settings, v.iter().map(|(_, c)| c).sum());
-}
+    write_count(buf, settings, v.iter().map(|(_, c)| c).sum())}
 
 fn write_count<W: std::fmt::Write>(buf: &mut W, settings: &Settings, count: u64) {
     if let Some(color) = settings.count_color { write!(buf, "\u{3}{:02}", color).unwrap(); }
     write!(buf, "{}{}", count, settings.count_unit).unwrap();
-    if let Some(_) = settings.count_color { write!(buf, "\u{3}").unwrap(); }
-}
+    if let Some(_) = settings.count_color { write!(buf, "\u{3}").unwrap() }}
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
@@ -79,8 +66,7 @@ fn main() {
         nickname: Some(settings.nick.clone()),
         server: Some(settings.server.clone()),
         channels: Some(vec![settings.channel.clone()]),
-        ..Config::default()
-    };
+        ..Config::default()};
     let counts = std::fs::read_to_string(&settings.dbfile).expect("db file read error");
     let mut state = toml::from_str(&counts).expect("db TOML parse error");
     let mut reactor = IrcReactor::new().unwrap();
@@ -90,9 +76,5 @@ fn main() {
         Ok(if let Message { prefix, command: Command::PRIVMSG(target, text), .. } = msg {
             if target != settings.channel { return Ok(()) }
             if let Some(nick) = prefix.and_then(|u| u.split('!').next().map(|s| s.to_owned())) {
-                absorb_message(client, &mut state, &settings, &target, &nick, &text);
-            }
-        })
-    });
-    reactor.run().unwrap();
-}
+                absorb_message(client, &mut state, &settings, &target, &nick, &text)}})});
+    reactor.run().unwrap()}
