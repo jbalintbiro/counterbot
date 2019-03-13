@@ -42,6 +42,7 @@ fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Setting
 }
 
 fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings) {
+    let medals = [(0, '\u{1F41B}'),(7, '\u{1F947}'), (15, '\u{1F948}'), (8, '\u{1F949}')];
     let mut v: Vec<_> = state.counter.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
     let mut prev = std::u64::MAX;
@@ -51,17 +52,11 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings
             place += 1
         };
         prev = *count;
-        let (color, icon) = match place {
-            1 => (7, '\u{1F947}'),
-            2 => (15, '\u{1F948}'),
-            3 => (8, '\u{1F949}'),
-            _ => (6, '\u{1F41B}'),
-        };
-        write!(buf, "\u{3}{}{}\u{3} {} ", color, icon, nick.as_str()).expect("oom");
+        write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str()).expect("oom");
         write_count(buf, settings, *count);
     }
     write!(buf, " :: \u{2211}").unwrap();
-    write_count(buf, settings, v.iter().map(|(_, c)| c).sum());
+    write_count(buf, settings, v.iter().map(|x| x.1).sum());
 }
 
 fn write_count<W: std::fmt::Write>(buf: &mut W, settings: &Settings, count: u64) {
