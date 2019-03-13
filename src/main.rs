@@ -3,7 +3,6 @@ extern crate serde_derive;
 
 use irc::client::prelude::*;
 use smallstr::SmallString;
-use std::collections::HashMap;
 
 #[derive(Debug, Deserialize)]
 struct Settings {
@@ -14,23 +13,20 @@ struct Settings {
     count_words: Vec<String>,
     count_color: Option<u8>,
     count_unit: String,
-    replacements: HashMap<Nick, Nick>,
+    replacements: std::collections::HashMap<Nick, Nick>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 struct State {
-    counter: HashMap<Nick, u64>,
+    counter: std::collections::HashMap<Nick, u64>,
 }
 
 type Nick = SmallString<[u8; 9]>;
 
 impl State {
     fn write_state_file(&mut self, file: &str) -> std::io::Result<()> {
-        let mut tmpfile = file.to_owned();
-        tmpfile.push_str("._tmp");
         let value = toml::value::Value::try_from(&self).expect("db TOML structure error");
-        std::fs::write(tmpfile.clone(), toml::to_string(&value).expect("db TOML encoding error").as_bytes())?;
-        std::fs::rename(tmpfile, file)
+        std::fs::write(file, toml::to_string(&value).expect("db TOML encoding error").as_bytes())
     }
 }
 
@@ -69,13 +65,13 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings
             place += 1
         };
         prev = *count;
-        match place {
-            1 => write!(buf, "\u{3}7\u{1F947}\u{3}").unwrap(),
-            2 => write!(buf, "\u{3}15\u{1F948}\u{3}").unwrap(),
-            3 => write!(buf, "\u{3}8\u{1F949}\u{3}").unwrap(),
-            _ => {}
+        let (color, icon) = match place {
+            1 => (7, '\u{1F947}'),
+            2 => (15, '\u{1F948}'),
+            3 => (8, '\u{1F949}'),
+            _ => (6, '\u{1F41B}'),
         };
-        write!(buf, "{} ", nick.as_str()).expect("oom");
+        write!(buf, "\u{3}{}{}\u{3} {} ", color, icon, nick.as_str()).expect("oom");
         write_count(buf, settings, *count);
     }
     write!(buf, " :: \u{2211}").unwrap();
