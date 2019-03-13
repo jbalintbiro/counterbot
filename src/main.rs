@@ -19,36 +19,26 @@ struct State {
     counter: std::collections::HashMap<String, u64>,
 }
 
-impl State {
-    fn save_state_file(&mut self, file: &str) -> std::io::Result<()> {
-        let value = toml::value::Value::try_from(&self).expect("db TOML structure error");
-        std::fs::write(file, toml::to_string(&value).expect("db TOML encoding error").as_bytes())
-    }
-}
-
 fn absorb_message<C: Client>(client: &C, state: &mut State, settings: &Settings, chan: &str, nick: &str, text: &str) {
     let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(&nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
             *state.counter.entry(realnick.to_owned()).or_insert(0) += 1;
-            state.save_state_file(&settings.dbfile).expect("can't write db");
+            std::fs::write(&settings.dbfile, toml::to_string(&toml::value::Value::try_from(&state).expect("db TOML structure error")).expect("db TOML encoding error").as_bytes()).expect("db write error")
         }
     }
-
     let mut buf = String::new();
     match text {
         "`top" => write_top(&mut buf, state, settings),
         "`stat" => write_stat(&mut buf, state, settings, realnick),
         _ => {}
     }
-
     if !buf.is_empty() { client.send_privmsg(chan, buf).expect("can't send") }
 }
 
 fn write_stat<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings, nick: &str) {
-    let count = *state.counter.get(nick).unwrap_or(&0);
     write!(buf, "{}: ", nick).expect("can't write buffer");
-    write_count(buf, settings, count);
+    write_count(buf, settings, *state.counter.get(nick).unwrap_or(&0));
 }
 
 fn write_top<W: std::fmt::Write>(buf: &mut W, state: &State, settings: &Settings) {
