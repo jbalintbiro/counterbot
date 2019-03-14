@@ -81,5 +81,5 @@ fn main() {
         settings.server.clone(),
         settings.channel.clone(),
         move |mut buf, nick, text| handle_message(&mut buf, &mut state, &settings, &nick, &text),
-    );
+    ).unwrap();
 }
