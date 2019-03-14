@@ -6,7 +6,7 @@ mod botframe;
 type Counter = std::collections::HashMap<String, u64>;
 type Result<T> = std::result::Result<T, Box<std::error::Error>>;
 
-#[derive(Debug, Deserialize)]
+#[derive(Deserialize)]
 struct Settings {
     nick: String,
     server: String,
@@ -18,7 +18,7 @@ struct Settings {
     replacements: std::collections::HashMap<String, String>,
 }
 
-fn handle_message(buf: &mut String, state: &mut Counter, settings: &Settings, nick: &str, text: &str) -> Result<()> {
+fn handle_message<W: std::fmt::Write>(buf: &mut W, state: &mut Counter, settings: &Settings, nick: &str, text: &str) -> Result<()> {
     let realnick: &str = settings.replacements.get(nick).map(|s| &**s).unwrap_or(nick);
     for cw in settings.count_words.iter() {
         if text.starts_with(cw) {
