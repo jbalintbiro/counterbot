@@ -1,6 +1,9 @@
 #[macro_use]
 extern crate serde_derive;
 
+#[macro_use]
+extern crate nom;
+
 mod botframe;
 
 type Counter = std::collections::HashMap<String, u64>;
