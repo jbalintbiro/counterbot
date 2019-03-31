@@ -45,27 +45,24 @@ fn write_top<W: std::fmt::Write>(buf: &mut W, state: &Counter, settings: &Settin
     let mut v: Vec<_> = state.iter().map(|(k, v)| (k.clone(), *v)).collect();
     v.sort_unstable_by(|&(_, ca), &(_, cb)| ca.cmp(&cb).reverse());
     let mut place = 1;
+    let mut add = 1;
     let diffs = v.iter().zip(v.iter().skip(1)).map(|(a, b)| a.1 != b.1);
     for ((nick, count), diff) in v.iter().zip(diffs).take(3) {
-        write!(buf, "\u{3}{}{}\u{3} {} ", medals[place].0, medals[place].1, nick.as_str())?;
+        write!(buf, "\u{3}{}{}\u{3}{} ", medals[place].0, medals[place].1, nick.as_str())?;
         write_count(buf, settings, *count)?;
         if diff {
-            place += 1
+            place += add;
+        } else {
+            add += 1;
         };
     }
-    write!(buf, " :: \u{2211}")?;
+    write!(buf, ":: \u{2211}")?;
     write_count(buf, settings, v.iter().map(|x| x.1).sum())
 }
 
 fn write_count<W: std::fmt::Write>(buf: &mut W, settings: &Settings, count: u64) -> Result<()> {
-    if let Some(color) = settings.count_color {
-        write!(buf, "\u{3}{:02}", color)?;
-    }
-    write!(buf, "{}{}", count, settings.count_unit)?;
-    if let Some(_) = settings.count_color {
-        write!(buf, "\u{3}")?;
-    }
-    Ok(())
+    let color = settings.count_color.unwrap_or(0);
+    Ok(write!(buf, "\u{3}{:02}{}{}\u{3}", color, count, settings.count_unit)?)
 }
 
 fn main() {
