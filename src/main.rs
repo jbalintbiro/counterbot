@@ -6,7 +6,7 @@ extern crate nom;
 
 mod botframe;
 
-type Counter = std::collections::HashMap<String, u64>;
+type Counter = std::collections::BTreeMap<String, u64>;
 type Result<T> = std::result::Result<T, Box<std::error::Error>>;
 
 #[derive(Deserialize)]
@@ -18,7 +18,7 @@ struct Settings {
     count_words: Vec<String>,
     count_color: Option<u8>,
     count_unit: String,
-    replacements: std::collections::HashMap<String, String>,
+    replacements: std::collections::BTreeMap<String, String>,
 }
 
 fn handle_message<W: std::fmt::Write>(buf: &mut W, state: &mut Counter, settings: &Settings, nick: &str, text: &str) -> Result<()> {
@@ -27,13 +27,14 @@ fn handle_message<W: std::fmt::Write>(buf: &mut W, state: &mut Counter, settings
         if text.starts_with(cw) {
             *state.entry(realnick.to_owned()).or_insert(0) += 1;
             let toml = toml::to_string(&toml::value::Value::try_from(&state)?)?;
-            std::fs::write(&settings.dbfile, toml.as_bytes())?
+            std::fs::write(&settings.dbfile, toml.as_bytes())?;
+            drop(toml);
         }
     }
     match text {
         "`top" => write_top(buf, state, settings),
         "`stat" => write_stat(buf, state, settings, realnick),
-        "`rules" => Ok(write!(buf, "\u{24B6}")?),
+        "`rules" => Ok(write!(buf, "\u{3}4\u{24B6}")?),
         _ => Ok(()),
     }
 }

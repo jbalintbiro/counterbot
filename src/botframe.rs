@@ -87,10 +87,14 @@ fn parse<'a>(buf: &'a [u8]) -> crate::Result<(usize, Option<Message<'a>>)> {
         Err(e) => {
             eprintln!("{:?}", e);
             let bstr = std::str::from_utf8(buf).expect("well this buffer wasn't utf-8");
-            panic!("@the disco!, also irc protocol decode error\nbuffer: {}", bstr);
+            panic!("irc protocol decode error\nbuffer: {}", bstr);
         },
     }
 }
+
+named!(userpart, is_not!(" !@\r\n"));
+named!(word, is_not!(" \r\n"));
+named!(param, recognize!(do_parse!(is_not!(" \r\n:") >> opt!(word) >> ())));
 
 named!(prefix<Prefix>,
     do_parse!(
@@ -102,18 +106,18 @@ named!(prefix<Prefix>,
 
 named!(user<Prefix>,
     do_parse!(
-        nick: is_not!(" !@\r\n") >>
+        nick: userpart >>
         tag!("!") >>
-        user: is_not!(" !@\r\n") >>
+        user: userpart >>
         tag!("@") >>
-        host: is_not!(" !@\r\n") >>
+        host: userpart >>
         (Prefix::User{ nick: s2s(nick), user: s2s(user), host: s2s(host)})
     )
 );
 
 named!(server<Prefix>,
     do_parse!(
-        s: is_not!(" \r\n") >>
+        s: word >>
         (Prefix::Server(s2s(s)))
     )
 );
@@ -122,16 +126,16 @@ named!(msg<Message>,
     do_parse!(
         prefix: opt!(prefix) >>
         opt!(tag!(" ")) >>
-        command: is_not!(" \r\n") >>
+        command: word >>
         params:  many_m_n!(0, 14,
             do_parse!(
                 tag!(" ") >>
-                param: recognize!(do_parse!(is_not!(" \r\n:") >> opt!(is_not!(" \r\n")) >> ())) >>
+                param: param >>
                 (param)
             )
         ) >>
         trailing: opt!(do_parse!(
-            opt!(tag!(" ")) >>
+            tag!(" ") >>
             opt!(tag!(":")) >>
             t: is_not!("\n\r") >>
             (t)
