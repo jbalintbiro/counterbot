@@ -1,6 +1,9 @@
 #[macro_use]
 extern crate serde_derive;
 
+#[macro_use]
+extern crate nom;
+
 mod botframe;
 
 type Counter = std::collections::HashMap<String, u64>;
@@ -82,5 +85,5 @@ fn main() {
         settings.server.clone(),
         settings.channel.clone(),
         move |mut buf, nick, text| handle_message(&mut buf, &mut state, &settings, &nick, &text),
-    );
+    ).unwrap();
 }

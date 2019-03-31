@@ -1,5 +1,5 @@
 nick = "test"
-server = "::0"
+server = "[::0]:6667"
 channel = "#test"
 count_words = ["!test"]
 count_unit = "🔧"
