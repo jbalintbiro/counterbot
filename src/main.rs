@@ -30,6 +30,7 @@ fn handle_message<W: std::fmt::Write>(buf: &mut W, state: &mut Counter, settings
     match text {
         "`top" => write_top(buf, state, settings),
         "`stat" => write_stat(buf, state, settings, realnick),
+        "`rules" => Ok(write!(buf, "\u{24B6}")?),
         _ => Ok(()),
     }
 }
