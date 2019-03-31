@@ -1,0 +1,1645 @@
+desc: (none)
+cmd: target/release/counterbot test-cfg.toml
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=383018
+mem_heap_B=552
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=387876
+mem_heap_B=1816
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=538848
+mem_heap_B=1816
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1816 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x490F98A: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x491D94E: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x491C9B2: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:493)
+    n1: 1024 0x49110A6: getdelim (iogetdelim.c:73)
+     n1: 1024 0x486ED71: pthread_getattr_np (pthread_getattr_np.c:118)
+      n0: 1024 0x13ABDE: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 552 0x4910369: __fopen_internal (iofopen.c:65)
+  n1: 552 0x486ECC9: pthread_getattr_np (pthread_getattr_np.c:81)
+   n0: 552 0x13ABDE: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 240 0x4910EFE: getdelim (iogetdelim.c:102)
+  n1: 240 0x486ED71: pthread_getattr_np (pthread_getattr_np.c:118)
+   n0: 240 0x13ABDE: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=557282
+mem_heap_B=570
+mem_heap_extra_B=142
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=580353
+mem_heap_B=890
+mem_heap_extra_B=150
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=594382
+mem_heap_B=1242
+mem_heap_extra_B=150
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=606059
+mem_heap_B=1210
+mem_heap_extra_B=126
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=622919
+mem_heap_B=586
+mem_heap_extra_B=246
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=639066
+mem_heap_B=1859
+mem_heap_extra_B=357
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=661367
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2147 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 112 in 25 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=11
+#-----------
+time=678098
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=689843
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=709089
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=719714
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=737133
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=750228
+mem_heap_B=2323
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=detailed
+n16: 2323 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 128 0x13FAF6: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 128 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 128 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 128 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n0: 80 in 24 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 80 0x1401D6: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=17
+#-----------
+time=768390
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=792092
+mem_heap_B=2515
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=detailed
+n16: 2515 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 256 0x13FAF6: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 256 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 256 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 256 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 144 0x1401D6: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 144 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 144 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 144 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n0: 80 in 24 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=19
+#-----------
+time=824692
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=846868
+mem_heap_B=2547
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=detailed
+n16: 2547 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 256 0x13FAF6: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 256 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 256 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 256 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 176 0x1401D6: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 176 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 176 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 176 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 24 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=21
+#-----------
+time=876870
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=901069
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=919967
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2115 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=24
+#-----------
+time=943073
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=966337
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=989827
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2115 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=27
+#-----------
+time=999465
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=1020178
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=1037926
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=1063595
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=1073167
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2147 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 112 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=32
+#-----------
+time=1089425
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=1098993
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=1124638
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=1150274
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=1166429
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2115 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=37
+#-----------
+time=1192017
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=1201577
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=1227199
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=1243349
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=1252893
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=1269060
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=1278632
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=1294884
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=1320500
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=1339062
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2115 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=47
+#-----------
+time=1359741
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=1378951
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=1399503
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=1411506
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=1416492
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=1428665
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=1433651
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=1445824
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2115 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=55
+#-----------
+time=1464471
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=1478167
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=1483511
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=1496085
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=1515076
+mem_heap_B=2131
+mem_heap_extra_B=477
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=1528645
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=1533859
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=1546302
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=1551516
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=1563959
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=detailed
+n14: 2115 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 80 in 26 places, all below massif's threshold (1.00%)
+ n1: 80 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 80 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 80 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n2: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n1: 32 0x12AE72: std::io::stdio::_eprint (fast_thread_local.rs:28)
+   n1: 32 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 32 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 32 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 32 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 32 0x13ADBA: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 50 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 50 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=65
+#-----------
+time=1569173
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=1581616
+mem_heap_B=2115
+mem_heap_extra_B=469
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=1586830
+mem_heap_B=2147
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=1599440
+mem_heap_B=2136
+mem_heap_extra_B=496
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=1604982
+mem_heap_B=2292
+mem_heap_extra_B=516
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=1610185
+mem_heap_B=2227
+mem_heap_extra_B=485
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=1623949
+mem_heap_B=2230
+mem_heap_extra_B=506
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=1627925
+mem_heap_B=3043
+mem_heap_extra_B=653
+mem_stacks_B=0
+heap_tree=detailed
+n16: 3043 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 632 0x11C5AD: _ZN5alloc5alloc15exchange_malloc17hbb051264ccc9aac9E.llvm.1304095646238965483 (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 632 0x13DD0E: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 632 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 632 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 632 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 191 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 128 0x11A672: _ZN5alloc6string6String13with_capacity17h0eaac10a662f4a50E.llvm.6480017051849171806 (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 128 0x13E8B9: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 128 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 128 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 128 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n2: 63 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+   n0: 13 in 2 places, all below massif's threshold (1.00%)
+ n1: 176 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n2: 176 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n3: 176 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 96 0x13194B: core::fmt::write (mod.rs:1024)
+     n1: 96 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 96 0x13A9B9: counterbot::write_count (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 96 0x13F435: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 96 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+         n1: 96 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+          n0: 96 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 99 in 28 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n1: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n0: 64 in 2 places, all below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x13E8C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 36 0x129B75: std::fs::read_to_string::inner (alloc.rs:111)
+  n1: 36 0x13B69A: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 36 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 36 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=73
+#-----------
+time=1635907
+mem_heap_B=2230
+mem_heap_extra_B=506
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=1649671
+mem_heap_B=2233
+mem_heap_extra_B=527
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=1654833
+mem_heap_B=3045
+mem_heap_extra_B=651
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=1661676
+mem_heap_B=2230
+mem_heap_extra_B=506
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=1675440
+mem_heap_B=2233
+mem_heap_extra_B=527
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=1680602
+mem_heap_B=3045
+mem_heap_extra_B=651
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=1702839
+mem_heap_B=2230
+mem_heap_extra_B=506
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=1716865
+mem_heap_B=2235
+mem_heap_extra_B=525
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=1721248
+mem_heap_B=3053
+mem_heap_extra_B=707
+mem_stacks_B=0
+heap_tree=peak
+n15: 3053 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1280 0x141646: std::collections::hash::table::RawTable<K,V>::new_uninitialized_internal (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 1280 0x139900: std::collections::hash::map::HashMap<K,V,S>::try_resize (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 1280 0x13BAFA: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 1280 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 1280 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 632 0x11C5AD: _ZN5alloc5alloc15exchange_malloc17hbb051264ccc9aac9E.llvm.1304095646238965483 (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 632 0x13DD0E: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 632 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 632 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+     n0: 632 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 196 0x11C75E: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 128 0x11A672: _ZN5alloc6string6String13with_capacity17h0eaac10a662f4a50E.llvm.6480017051849171806 (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 128 0x13E8B9: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 128 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 128 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 128 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n2: 68 0x11C45F: alloc::slice::<impl alloc::borrow::ToOwned for [T]>::to_owned (in /home/bjb/code/counterbot/target/release/counterbot)
+   n2: 50 0x11C4D9: <serde::de::impls::StringVisitor as serde::de::Visitor>::visit_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n2: 44 0x142EA2: serde::de::impls::<impl serde::de::Deserialize for alloc::string::String>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 39 0x113049: <core::marker::PhantomData<T> as serde::de::DeserializeSeed>::deserialize (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 39 0x10E9EE: <toml::de::MapVisitor as serde::de::MapAccess>::next_value_seed (in /home/bjb/code/counterbot/target/release/counterbot)
+       n0: 39 in 5 places, all below massif's threshold (1.00%)
+     n0: 5 in 1 place, below massif's threshold (1.00%)
+    n0: 6 in 1 place, below massif's threshold (1.00%)
+   n0: 18 in 2 places, all below massif's threshold (1.00%)
+ n1: 176 0x120E90: alloc::vec::Vec<T>::reserve (in /home/bjb/code/counterbot/target/release/counterbot)
+  n2: 176 0x120E30: <alloc::vec::Vec<T> as alloc::vec::SpecExtend<&T,core::slice::Iter<T>>>::spec_extend (in /home/bjb/code/counterbot/target/release/counterbot)
+   n3: 176 0x120CB5: <&mut W as core::fmt::Write>::write_str (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 96 0x13194B: core::fmt::write (mod.rs:1024)
+     n1: 96 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 96 0x13A9B9: counterbot::write_count (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 96 0x13F435: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 96 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+         n1: 96 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+          n0: 96 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 80 0x131B77: core::fmt::write (mod.rs:1015)
+     n1: 80 0x120E01: core::fmt::Write::write_fmt (in /home/bjb/code/counterbot/target/release/counterbot)
+      n1: 80 0x13D111: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+       n1: 80 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+        n1: 80 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+         n0: 80 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 0 in 4 places, all below massif's threshold (1.00%)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n2: 159 0x129AF3: std::fs::read_to_string::inner (alloc.rs:75)
+  n1: 159 0x13B5CE: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 159 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 159 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 0 in 1 place, below massif's threshold (1.00%)
+ n0: 140 in 29 places, all below massif's threshold (1.00%)
+ n1: 80 0x121E73: std::thread::Thread::new (alloc.rs:10)
+  n0: 80 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n2: 72 0x14317D: alloc::raw_vec::RawVec<T,A>::allocate_in (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 48 0x13B443: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n0: 24 in 1 place, below massif's threshold (1.00%)
+ n1: 64 0x48DA55D: __cxa_thread_atexit_impl (cxa_thread_atexit_impl.c:106)
+  n0: 64 in 2 places, all below massif's threshold (1.00%)
+ n1: 48 0x121DDA: std::thread::Thread::new (alloc.rs:10)
+  n0: 48 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 48 0x12A5B4: std::io::stdio::stderr (alloc.rs:10)
+  n1: 48 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 48 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 48 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 48 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 48 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x121D73: std::thread::Thread::new (alloc.rs:10)
+  n0: 40 0x13AD6F: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x12A54C: std::io::stdio::stderr (alloc.rs:10)
+  n1: 40 0x12AF20: std::io::stdio::_eprint (stdio.rs:737)
+   n1: 40 0x1409C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+    n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+     n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+      n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 40 0x13E8C2: counterbot::botframe::run_bot (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 40 0x13C1F6: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+   n1: 40 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+    n0: 40 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+ n1: 38 0x13B365: counterbot::main (in /home/bjb/code/counterbot/target/release/counterbot)
+  n1: 38 0x142A71: std::rt::lang_start::{{closure}} (in /home/bjb/code/counterbot/target/release/counterbot)
+   n0: 38 0x13B09C: main (in /home/bjb/code/counterbot/target/release/counterbot)
+#-----------
+snapshot=82
+#-----------
+time=1726122
+mem_heap_B=2363
+mem_heap_extra_B=533
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=1731001
+mem_heap_B=2235
+mem_heap_extra_B=525
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=1744999
+mem_heap_B=2240
+mem_heap_extra_B=544
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=1752158
+mem_heap_B=2372
+mem_heap_extra_B=596
+mem_stacks_B=0
+heap_tree=empty

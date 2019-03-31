@@ -43,17 +43,23 @@ where
         if !out_buf.is_empty() {
             conn.write(out_buf.as_bytes())?;
             conn.flush()?;
+            eprint!(">>> {}", out_buf);
             out_buf.clear();
         }
 
         let count = conn.read(&mut in_buf[ib_end..])?;
+        if count == 0 { panic!("connection broke") };
         ib_end += count;
         let mut ib_start = 0;
         
         loop {
             let (len, msg) = parse(&in_buf[ib_start..ib_end])?;
             if len == 0 { break; }
+            eprintln!("<<< {:?}", msg);
             if let Some(msg) = msg {
+                if msg.command == "PING" {
+                    write!(out_buf, "PONG :{}\r\n", msg.trailing.unwrap_or(""))?;
+                }
                 if let Some(Prefix::User{nick, ..}) = msg.prefix {
                     handler(&mut reply_buf, nick, msg.trailing.unwrap_or(""))?;
                     if !reply_buf.is_empty() {
