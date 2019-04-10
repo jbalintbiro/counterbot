@@ -48,7 +48,7 @@ where
         }
 
         let count = conn.read(&mut in_buf[ib_end..])?;
-        if count == 0 { panic!("connection broke") };
+        if count == 0 { panic!("connection broke") }; // XXX
         ib_end += count;
         let mut ib_start = 0;
         
@@ -94,7 +94,7 @@ fn parse<'a>(buf: &'a [u8]) -> crate::Result<(usize, Option<Message<'a>>)> {
 
 named!(userpart, is_not!(" !@\r\n"));
 named!(word, is_not!(" \r\n"));
-named!(param, recognize!(do_parse!(is_not!(" \r\n:") >> opt!(word) >> ())));
+named!(param, recognize!(pair!(is_not!(" \r\n:"), opt!(word))));
 
 named!(prefix<Prefix>,
     do_parse!(
@@ -131,17 +131,17 @@ named!(msg<Message>,
             do_parse!(
                 tag!(" ") >>
                 param: param >>
-                (param)
+                (s2s(param))
             )
         ) >>
         trailing: opt!(do_parse!(
             tag!(" ") >>
             opt!(tag!(":")) >>
-            t: is_not!("\n\r") >>
+            t: take_until_either!("\n\r") >>
             (t)
         )) >>
         alt!(tag!("\r\n") | tag!("\n")) >>
-        (Message { prefix, command: s2s(command), params: params.into_iter().map(s2s).collect(), trailing: trailing.map(s2s) })
+        (Message { prefix, command: s2s(command), params, trailing: trailing.map(s2s) })
     )
 );
 
@@ -169,5 +169,11 @@ mod tests {
     fn test_welcome() {
         let m = b":irc.example.net 001 test :Welcome to the Internet Relay Network test!~test@localhost\r\n";
         assert_eq!(msg(m).unwrap(), (&[][..],  Message { prefix: Some(Prefix::Server("irc.example.net")), command: "001", params: vec!["test"], trailing: Some("Welcome to the Internet Relay Network test!~test@localhost") }));
+    }
+
+    #[test]
+    fn test_kick_empty_trailing() {
+        let m = b":saati!~bjb@saati.flerp KICK #sirc sIRCbot :\r\n";
+        assert_eq!(msg(m).unwrap(), (&[][..],  Message { prefix: Some(Prefix::User{nick: "saati", user: "~bjb", host: "saati.flerp"}), command: "KICK", params: vec!["#sirc", "sIRCbot"], trailing: Some("")}));
     }
 }
